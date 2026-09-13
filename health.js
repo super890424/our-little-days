@@ -962,6 +962,25 @@ document.addEventListener("DOMContentLoaded", async function () {
   setupWaterButtons();
   setupSaveButton();
   setupMonthButtons();
+  setupLogoutButton();
 
   await loadCurrentMonth();
 });
+// ==========================================================
+// 🚪 登出
+// ==========================================================
+
+function setupLogoutButton() {
+  const button = document.getElementById("logout-button");
+
+  if (!button) {
+    return;
+  }
+
+  button.addEventListener("click", function () {
+    sessionStorage.removeItem("veggie-baby-token");
+    localStorage.removeItem("health-diary-author");
+
+    window.location.href = "index.html";
+  });
+}
