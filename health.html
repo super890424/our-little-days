@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+
+    <title>Our Little Days｜健康日記</title>
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="health.css" />
+  </head>
+
+  <body class="health-page">
+    <!-- 頁首 -->
+    <header class="health-header">
+      <div class="health-header-title">
+        <div class="health-title">🌱 Health Diary</div>
+        <div class="health-subtitle">一起照顧好自己，也照顧彼此</div>
+      </div>
+    </header>
+    <main class="health-main">
+      <!-- ====================
+     導覽
+==================== -->
+
+      <nav class="site-nav">
+        <a href="index.html" class="site-nav-link"> 🏠 首頁 </a>
+
+        <a href="health.html" class="site-nav-link active"> 🌱 健康日記 </a>
+
+        <a href="diary.html" class="site-nav-link"> 💌 交換日記 </a>
+
+        <button id="logout-button" class="site-nav-logout" type="button">
+          ↪ 離開
+        </button>
+      </nav>
+      <!-- 身份選擇 -->
+      <section class="health-card">
+        <div class="health-card-title">今天是誰在寫？</div>
+
+        <div class="health-identity">
+          <button
+            type="button"
+            class="health-identity-button"
+            data-author="BIG"
+          >
+            🐕 大朋友
+          </button>
+
+          <button
+            type="button"
+            class="health-identity-button"
+            data-author="SMALL"
+          >
+            💃 小朋友
+          </button>
+        </div>
+
+        <div class="health-current-author">
+          目前身份：
+          <strong id="current-health-author">💃 小朋友</strong>
+        </div>
+      </section>
+
+      <!-- 日期 -->
+      <section class="health-card health-date-card">
+        <button type="button" id="health-prev-date" class="health-date-arrow">
+          ‹
+        </button>
+
+        <div class="health-selected-date-wrap">
+          <div class="health-date-label">今天的健康日記</div>
+          <div id="health-selected-date" class="health-selected-date">—</div>
+        </div>
+
+        <button type="button" id="health-next-date" class="health-date-arrow">
+          ›
+        </button>
+      </section>
+
+      <!-- 每日健康紀錄 -->
+      <section class="health-card">
+        <div class="health-card-title">今天有好好照顧自己嗎？</div>
+
+        <!-- 蔬菜 -->
+        <div class="health-task">
+          <div class="health-task-header">
+            <div>
+              <div class="health-task-title">🥬 蔬菜</div>
+              <div class="health-task-desc">今天有吃到蔬菜嗎？</div>
+            </div>
+
+            <div id="health-veggie-score" class="health-task-score">0 / 2</div>
+          </div>
+
+          <div class="health-options">
+            <button
+              type="button"
+              class="health-option"
+              data-field="veggie"
+              data-value="0"
+            >
+              沒有
+            </button>
+
+            <button
+              type="button"
+              class="health-option"
+              data-field="veggie"
+              data-value="1"
+            >
+              有一點 🥗
+            </button>
+
+            <button
+              type="button"
+              class="health-option"
+              data-field="veggie"
+              data-value="2"
+            >
+              吃得很好 🥦
+            </button>
+          </div>
+        </div>
+
+        <!-- 水果 -->
+        <div class="health-task">
+          <div class="health-task-header">
+            <div>
+              <div class="health-task-title">🍎 水果</div>
+              <div class="health-task-desc">今天有吃水果嗎？</div>
+            </div>
+
+            <div id="health-fruit-score" class="health-task-score">0 / 1</div>
+          </div>
+
+          <div class="health-options">
+            <button
+              type="button"
+              class="health-option"
+              data-field="fruit"
+              data-value="0"
+            >
+              沒有
+            </button>
+
+            <button
+              type="button"
+              class="health-option"
+              data-field="fruit"
+              data-value="1"
+            >
+              有 🍓
+            </button>
+          </div>
+        </div>
+
+        <!-- 蛋白質 -->
+        <div class="health-task">
+          <div class="health-task-header">
+            <div>
+              <div class="health-task-title">🥩 蛋白質</div>
+              <div class="health-task-desc">今天有好好吃蛋白質嗎？</div>
+            </div>
+
+            <div id="health-protein-score" class="health-task-score">0 / 1</div>
+          </div>
+
+          <div class="health-options">
+            <button
+              type="button"
+              class="health-option"
+              data-field="protein"
+              data-value="0"
+            >
+              沒有
+            </button>
+
+            <button
+              type="button"
+              class="health-option"
+              data-field="protein"
+              data-value="1"
+            >
+              有 💪
+            </button>
+          </div>
+        </div>
+
+        <!-- 運動 -->
+        <div class="health-task">
+          <div class="health-task-header">
+            <div>
+              <div class="health-task-title">🏃 運動</div>
+              <div class="health-task-desc">今天有動一動嗎？</div>
+            </div>
+
+            <div id="health-exercise-score" class="health-task-score">
+              0 / 2
+            </div>
+          </div>
+
+          <div class="health-options">
+            <button
+              type="button"
+              class="health-option"
+              data-field="exercise"
+              data-value="0"
+            >
+              今天休息
+            </button>
+
+            <button
+              type="button"
+              class="health-option"
+              data-field="exercise"
+              data-value="1"
+            >
+              有動一下 🚶
+            </button>
+
+            <button
+              type="button"
+              class="health-option"
+              data-field="exercise"
+              data-value="2"
+            >
+              運動很多 🏃‍♀️
+            </button>
+          </div>
+        </div>
+
+        <!-- 喝水 -->
+        <div class="health-task">
+          <div class="health-task-header">
+            <div>
+              <div class="health-task-title">💧 喝水</div>
+              <div id="health-water-target" class="health-task-desc">
+                今日目標：—
+              </div>
+            </div>
+
+            <div id="health-water-score" class="health-task-score">0 / 3</div>
+          </div>
+
+          <div class="health-water-control">
+            <button
+              type="button"
+              id="health-water-minus"
+              class="health-water-button"
+            >
+              −
+            </button>
+
+            <div class="health-water-value">
+              <span id="health-water">0</span>
+              <span>ml</span>
+            </div>
+
+            <button
+              type="button"
+              id="health-water-plus"
+              class="health-water-button"
+            >
+              ＋
+            </button>
+          </div>
+
+          <div class="health-water-hint">每次增加 100 ml</div>
+        </div>
+
+        <!-- 睡眠 -->
+        <div class="health-task">
+          <div class="health-task-header">
+            <div>
+              <div class="health-task-title">😴 睡眠</div>
+              <div class="health-task-desc">昨晚有睡飽嗎？</div>
+            </div>
+
+            <div id="health-sleep-score" class="health-task-score">0 / 1</div>
+          </div>
+
+          <div class="health-options">
+            <button
+              type="button"
+              class="health-option"
+              data-field="sleep"
+              data-value="0"
+            >
+              沒睡飽 🥱
+            </button>
+
+            <button
+              type="button"
+              class="health-option"
+              data-field="sleep"
+              data-value="1"
+            >
+              有睡飽 😴
+            </button>
+          </div>
+        </div>
+
+        <!-- 今日分數 -->
+        <div class="health-total">
+          <div class="health-total-label">今日健康分數</div>
+
+          <div class="health-total-score">
+            <span id="health-score">0</span>
+            <span class="health-total-max">/ 10</span>
+          </div>
+
+          <div id="health-status" class="health-status">今天還沒有紀錄</div>
+        </div>
+
+        <!-- 儲存 -->
+        <button
+          type="button"
+          id="health-save-button"
+          class="health-save-button"
+        >
+          儲存今天的健康日記 🌱
+        </button>
+      </section>
+
+      <!-- 月曆 -->
+      <section class="health-card">
+        <div class="health-calendar-header">
+          <button
+            type="button"
+            id="health-prev-month"
+            class="health-month-button"
+          >
+            ‹
+          </button>
+
+          <div id="health-calendar-title" class="health-calendar-title">—</div>
+
+          <button
+            type="button"
+            id="health-next-month"
+            class="health-month-button"
+          >
+            ›
+          </button>
+        </div>
+
+        <div class="health-calendar-weekdays">
+          <div>日</div>
+          <div>一</div>
+          <div>二</div>
+          <div>三</div>
+          <div>四</div>
+          <div>五</div>
+          <div>六</div>
+        </div>
+
+        <div id="health-calendar-grid" class="health-calendar-grid"></div>
+
+        <div class="health-calendar-legend">
+          <div>
+            <span class="legend-dot legend-good"></span>
+            很不錯
+          </div>
+
+          <div>
+            <span class="legend-dot legend-normal"></span>
+            普通
+          </div>
+
+          <div>
+            <span class="legend-dot legend-rest"></span>
+            休息
+          </div>
+        </div>
+      </section>
+
+      <!-- 月份統計 -->
+      <section class="health-card">
+        <div class="health-card-title">📊 本月健康小統計</div>
+
+        <div class="health-couple-summary">
+          <!-- 大朋友 -->
+          <div class="health-person-summary">
+            <div class="health-person-title">🐕 大朋友</div>
+
+            <div class="health-person-average">
+              平均
+              <strong id="health-big-average">0.0</strong>
+              <span>/ 10</span>
+            </div>
+
+            <div class="health-person-status">
+              <div class="health-person-status-item">
+                <span>🟢</span>
+                <strong id="health-big-good">0</strong>
+                <span>天很不錯</span>
+              </div>
+
+              <div class="health-person-status-item">
+                <span>🟡</span>
+                <strong id="health-big-normal">0</strong>
+                <span>天普通</span>
+              </div>
+
+              <div class="health-person-status-item">
+                <span>🔵</span>
+                <strong id="health-big-rest">0</strong>
+                <span>天休息</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 小朋友 -->
+          <div class="health-person-summary">
+            <div class="health-person-title">💃 小朋友</div>
+
+            <div class="health-person-average">
+              平均
+              <strong id="health-small-average">0.0</strong>
+              <span>/ 10</span>
+            </div>
+
+            <div class="health-person-status">
+              <div class="health-person-status-item">
+                <span>🟢</span>
+                <strong id="health-small-good">0</strong>
+                <span>天很不錯</span>
+              </div>
+
+              <div class="health-person-status-item">
+                <span>🟡</span>
+                <strong id="health-small-normal">0</strong>
+                <span>天普通</span>
+              </div>
+
+              <div class="health-person-status-item">
+                <span>🔵</span>
+                <strong id="health-small-rest">0</strong>
+                <span>天休息</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="health.js"></script>
+  </body>
+</html>
