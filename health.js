@@ -276,7 +276,7 @@ function getHealthStatus(score) {
   if (score >= 8) {
     return {
       icon: "🟢",
-      text: "今天很不錯",
+      text: "今天超棒",
     };
   }
 
@@ -289,7 +289,7 @@ function getHealthStatus(score) {
 
   return {
     icon: "🔵",
-    text: "今天休息",
+    text: "待加強",
   };
 }
 
@@ -808,7 +808,7 @@ function renderMonthlySummary() {
     summary[author].days++;
     summary[author].totalScore += status.score;
 
-    if (status.text === "今天很不錯") {
+    if (status.text === "今天超棒") {
       summary[author].good++;
     } else if (status.text === "普通的一天") {
       summary[author].normal++;
