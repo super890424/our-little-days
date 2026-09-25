@@ -3057,13 +3057,12 @@ img {
 ========================================================= */
 
 .home-hero {
-  padding: 20px 16px 34px;
-
+  padding: 0cqb 16px 38px;
   text-align: center;
 }
 
 .home-hero-icon {
-  margin-bottom: 14px;
+  margin-bottom: 18px;
 
   color: #c7959e;
 
@@ -3083,6 +3082,9 @@ img {
 }
 
 .home-hero h1 {
+  font-size: 40px;
+  line-height: 1.2;
+
   margin: 0;
 
   color: #383431;
@@ -3397,9 +3399,9 @@ img {
     padding-top: 43px;
   }
 
-  .home-hero {
-    padding: 15px 10px 30px;
-  }
+.home-hero {
+  padding: 0px 10px 18px;
+}
 
   .home-hero-icon {
     margin-bottom: 12px;
@@ -4113,4 +4115,924 @@ img {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.home-return-card {
+  width: 100%;
+  box-sizing: border-box;
+
+  display: grid;
+  grid-template-columns: 48% 1fr;
+  align-items: center;
+  gap: 28px;
+
+  margin-top: 8px;
+  padding: 18px;
+
+  background: linear-gradient(
+    145deg,
+    #fffafa 0%,
+    #faf5f1 100%
+  );
+
+  border: 1px solid rgba(80, 70, 60, 0.08);
+  border-radius: 24px;
+
+  box-shadow:
+    0 7px 25px rgba(60, 50, 40, 0.045);
+}
+
+
+/* ==========================================================
+   📷 首頁合照
+   ========================================================== */
+
+.home-return-photo-wrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+  border-radius: 20px;
+  background: #f5eeee;
+}
+
+.home-return-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+
+  object-fit: cover;
+
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.home-return-photo.loaded {
+  opacity: 1;
+}
+
+.home-return-photo-loading {
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #c8959d;
+  font-size: 32px;
+}
+
+.home-return-photo-loading.hidden {
+  display: none;
+}
+
+
+/* ==========================================================
+   🐕 倒數文字
+   ========================================================== */
+
+.home-return-content {
+  min-width: 0;
+}
+
+.home-return-label {
+  margin: 0 0 8px;
+
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+
+  color: #aaa09a;
+}
+
+.home-return-content h2 {
+  font-size: 22px;
+  line-height: 1.35;
+  margin: 0 0 8px;
+
+
+  color: #3f3a38;
+}
+
+.home-return-count-row {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  margin-top: 4px;
+
+}
+
+.home-return-days {
+  font-size: 64px;
+  line-height: 0.95;
+  font-weight: 700;
+  letter-spacing: -2px;
+
+  color: #3f3a38;
+}
+
+.home-return-days-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 2.5px;
+
+  color: #aaa09a;
+}
+
+.home-return-message {
+  margin: 10px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.home-missing-text {
+  margin: 12px 0 0;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.home-missing-text span {
+  font-weight: 700;
+  color: #b98791;
+}
+
+/* =========================================================
+   💌 只有一張日記卡 → 改成完整寬度
+========================================================= */
+
+.home-features {
+  grid-template-columns: 1fr;
+}
+
+
+.home-feature-card.diary-card {
+  min-height: 180px;
+}
+
+
+/* =========================================================
+   📱 手機
+========================================================= */
+
+@media (max-width: 600px) {
+
+
+  .home-return-card {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 14px;
+  }
+
+  .home-return-photo-wrap {
+    aspect-ratio: 4 / 3;
+    border-radius: 18px;
+  }
+
+  .home-return-content {
+    padding: 2px 6px 8px;
+  }
+
+  .home-return-days {
+    font-size: 64px;
+  }
+
+  .home-return-content h2 {
+    font-size: 22px;
+  }
+
+  .home-return-message {
+    font-size: 15px;
+  }
+
+  .home-missing-text {
+    font-size: 16px;
+  }
+}
+/* =========================================================
+   🏠 Our Little Days｜首頁最終版
+   直接放在 style.css 最底部
+========================================================= */
+
+
+/* ---------------------------------------------------------
+   Hero
+--------------------------------------------------------- */
+
+.home-page .home-main {
+  width: min(100% - 32px, 760px);
+  margin: 0 auto;
+  padding: 18px 0 20px;
+}
+
+.home-page .home-hero {
+  padding: 8px 16px 34px;
+  text-align: center;
+}
+
+.home-page .home-hero-icon {
+  margin-bottom: 16px;
+
+  color: #c7959e;
+
+  font-size: 42px;
+  line-height: 1;
+}
+
+.home-page .home-eyebrow {
+  margin: 0 0 8px;
+
+  color: #a39b94;
+
+  font-size: 12px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+}
+
+.home-page .home-hero h1 {
+  margin: 0;
+
+  color: #383431;
+
+  font-size: clamp(30px, 6.5vw, 46px);
+  font-weight: 700;
+
+  line-height: 1.2;
+
+  letter-spacing: 1px;
+}
+
+.home-page .home-description {
+  margin: 16px 0 0;
+
+  color: #88817b;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+}
+
+
+/* ---------------------------------------------------------
+   🐕 大朋友回國倒數卡
+--------------------------------------------------------- */
+
+.home-page .home-return-card {
+  width: 100%;
+  box-sizing: border-box;
+
+  display: grid;
+
+  grid-template-columns: 48% 1fr;
+
+  align-items: center;
+
+  gap: 28px;
+
+  margin-top: 0;
+
+  padding: 22px;
+
+  min-height: 390px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffafa 0%,
+      #faf5f1 100%
+    );
+
+  border: 1px solid rgba(80, 70, 60, 0.08);
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 7px 25px rgba(60, 50, 40, 0.045);
+}
+
+
+/* ---------------------------------------------------------
+   📷 合照
+--------------------------------------------------------- */
+
+.home-page .home-return-photo-wrap {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 4 / 3;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+
+  background: #f5eeee;
+}
+
+.home-page .home-return-photo {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0;
+
+  transition: opacity 0.35s ease;
+}
+
+.home-page .home-return-photo.loaded {
+  opacity: 1;
+}
+
+.home-page .home-return-photo-loading {
+  position: absolute;
+
+  inset: 0;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  color: #c8959d;
+
+  font-size: 32px;
+}
+
+.home-page .home-return-photo-loading.hidden {
+  display: none;
+}
+
+
+/* ---------------------------------------------------------
+   🐕 倒數文字
+--------------------------------------------------------- */
+
+.home-page .home-return-content {
+  min-width: 0;
+
+  padding: 4px 4px 4px 0;
+}
+
+.home-page .home-return-label {
+  margin: 0 0 7px;
+
+  color: #aaa09a;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 3px;
+}
+
+.home-page .home-return-content h2 {
+  margin: 0 0 7px;
+
+  color: #3f3a38;
+
+  font-size: 21px;
+  font-weight: 700;
+
+  line-height: 1.35;
+}
+
+.home-page .home-return-count-row {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 9px;
+
+  margin-top: 4px;
+}
+
+.home-page .home-return-days {
+  color: #3f3a38;
+
+  font-size: 64px;
+  font-weight: 700;
+
+  line-height: 0.95;
+
+  letter-spacing: -2px;
+}
+
+.home-page .home-return-days-label {
+  color: #aaa09a;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  letter-spacing: 2.5px;
+}
+
+.home-page .home-return-message {
+  margin: 11px 0 0;
+
+  color: #77706b;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+}
+
+.home-page .home-missing-text {
+  margin: 11px 0 0;
+
+  color: #4f4946;
+
+  font-size: 15px;
+
+  line-height: 1.5;
+}
+
+.home-page .home-missing-text span {
+  color: #b98791;
+
+  font-weight: 700;
+}
+
+
+/* ---------------------------------------------------------
+   💌 交換日記
+--------------------------------------------------------- */
+
+.home-page .home-features {
+  display: grid;
+
+  grid-template-columns: 1fr;
+
+  gap: 16px;
+
+  width: 100%;
+
+  margin-top: 18px;
+}
+
+.home-page .home-feature-card.diary-card {
+  min-height: 180px;
+}
+
+
+/* =========================================================
+   📱 手機版
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .home-page .home-main {
+    width: calc(100% - 20px);
+
+    padding-top: 8px;
+  }
+
+  .home-page .home-hero {
+    padding: 4px 10px 28px;
+  }
+
+  .home-page .home-hero-icon {
+    margin-bottom: 14px;
+
+    font-size: 38px;
+  }
+
+  .home-page .home-eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 11px;
+
+    letter-spacing: 2.5px;
+  }
+
+  .home-page .home-hero h1 {
+    font-size: 34px;
+  }
+
+  .home-page .home-description {
+    margin-top: 14px;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+  }
+
+
+  /* 倒數卡 */
+
+  .home-page .home-return-card {
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding: 14px;
+
+    min-height: 0;
+  }
+
+  .home-page .home-return-photo-wrap {
+    aspect-ratio: 4 / 3;
+
+    border-radius: 18px;
+  }
+
+  .home-page .home-return-content {
+    padding: 2px 6px 8px;
+  }
+
+  .home-page .home-return-label {
+    font-size: 11px;
+  }
+
+  .home-page .home-return-content h2 {
+    font-size: 21px;
+  }
+
+  .home-page .home-return-days {
+    font-size: 60px;
+  }
+
+  .home-page .home-return-message {
+    font-size: 15px;
+  }
+
+  .home-page .home-missing-text {
+    font-size: 15px;
+  }
+
+
+  /* 交換日記 */
+
+  .home-page .home-features {
+    grid-template-columns: 1fr;
+
+    gap: 12px;
+
+    margin-top: 14px;
+  }
+
+  .home-page .home-feature-card.diary-card {
+    min-height: 205px;
+  }
+}
+
+
+/* =========================================================
+   📱 很小的手機
+========================================================= */
+
+@media (max-width: 380px) {
+
+  .home-page .home-main {
+    width: calc(100% - 16px);
+  }
+
+  .home-page .home-hero h1 {
+    font-size: 30px;
+  }
+
+  .home-page .home-return-days {
+    font-size: 56px;
+  }
+}
+
+/* =========================================================
+   📱 把我們的小日子帶到手機
+========================================================= */
+
+.home-page .home-app-guide {
+  width: 100%;
+  box-sizing: border-box;
+
+  margin-top: 18px;
+  padding: 22px 24px 20px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fffdfb 0%,
+      #faf5f1 100%
+    );
+
+  border: 1px solid rgba(80, 70, 60, 0.08);
+  border-radius: 22px;
+
+  box-shadow:
+    0 7px 25px rgba(60, 50, 40, 0.045);
+}
+
+
+/* ---------------------------------------------------------
+   標題
+--------------------------------------------------------- */
+
+.home-page .home-app-guide-header {
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+}
+
+.home-page .home-app-guide-icon {
+  width: 44px;
+  height: 44px;
+
+  flex: 0 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 14px;
+
+  background: #f8eeee;
+
+  font-size: 21px;
+}
+
+.home-page .home-app-guide-label {
+  margin: 0 0 3px;
+
+  color: #aaa19a;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.home-page .home-app-guide-header h2 {
+  margin: 0;
+
+  color: #49433e;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+.home-page .home-app-guide-intro {
+  margin: 14px 0 14px;
+
+  color: #88817b;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+
+/* ---------------------------------------------------------
+   iPhone / Android 選項
+--------------------------------------------------------- */
+
+.home-page .home-app-guide-item {
+  margin-top: 8px;
+
+  border-radius: 15px;
+
+  background: rgba(255, 255, 255, 0.65);
+
+  border: 1px solid rgba(80, 70, 60, 0.06);
+
+  overflow: hidden;
+}
+
+.home-page .home-app-guide-item summary {
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 13px 15px;
+
+  color: #4f4945;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  list-style: none;
+}
+
+.home-page .home-app-guide-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.home-page .home-app-guide-arrow {
+  margin-left: auto;
+
+  color: #b9aaa3;
+
+  font-size: 18px;
+
+  transition: transform 0.2s ease;
+}
+
+.home-page .home-app-guide-item[open]
+  .home-app-guide-arrow {
+  transform: rotate(180deg);
+}
+
+
+/* ---------------------------------------------------------
+   教學內容
+--------------------------------------------------------- */
+
+.home-page .home-app-guide-content {
+  padding: 3px 15px 15px;
+}
+
+.home-page .home-app-step {
+  display: flex;
+  align-items: flex-start;
+
+  gap: 10px;
+
+  padding: 8px 0;
+}
+
+.home-page .home-app-step-number {
+  width: 22px;
+  height: 22px;
+
+  flex: 0 0 22px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 1px;
+
+  border-radius: 50%;
+
+  background: #f2e3e5;
+
+  color: #a87982;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.home-page .home-app-step p {
+  margin: 0;
+
+  color: #716a65;
+
+  font-size: 13px;
+
+  line-height: 1.7;
+}
+
+.home-page .home-app-step strong {
+  color: #514a46;
+}
+
+.home-page .home-app-guide-tip {
+  margin: 10px 0 0;
+  padding: 11px 13px;
+
+  border-radius: 12px;
+
+  background: #fbf2f2;
+
+  color: #8f777c;
+
+  font-size: 12px;
+
+  line-height: 1.7;
+}
+
+.home-page .home-app-guide-note {
+  margin: 13px 0 0;
+
+  color: #aaa19a;
+
+  font-size: 11px;
+
+  line-height: 1.7;
+
+  text-align: center;
+}
+
+
+/* =========================================================
+   📱 手機版
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .home-page .home-app-guide {
+    margin-top: 14px;
+
+    padding: 19px 16px 17px;
+
+    border-radius: 20px;
+  }
+
+  .home-page .home-app-guide-header {
+    gap: 11px;
+  }
+
+  .home-page .home-app-guide-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 13px;
+
+    font-size: 20px;
+  }
+
+  .home-page .home-app-guide-header h2 {
+    font-size: 16px;
+  }
+
+  .home-page .home-app-guide-intro {
+    font-size: 12px;
+  }
+
+  .home-page .home-app-guide-item summary {
+    padding: 12px 13px;
+
+    font-size: 13px;
+  }
+
+  .home-page .home-app-guide-content {
+    padding: 3px 13px 13px;
+  }
+
+  .home-page .home-app-step p {
+    font-size: 12px;
+  }
+
+  .home-page .home-app-guide-tip {
+    font-size: 11px;
+  }
+}
+
+/* =========================================================
+   🐕 回國倒數｜右側日期資訊
+========================================================= */
+
+.home-page .home-return-date-divider {
+  width: 100%;
+  height: 1px;
+
+  margin: 22px 0 18px;
+
+  background: rgba(80, 70, 60, 0.10);
+}
+
+.home-page .home-return-date {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.home-page .home-return-date-number {
+  color: #9f8f88;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  letter-spacing: 2px;
+}
+
+.home-page .home-return-date-text {
+  color: #77706b;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.home-page .home-return-content .home-missing-text {
+  margin-top: 16px;
+}
+
+
+/* =========================================================
+   📱 手機
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .home-page .home-return-date-divider {
+    margin: 20px 0 16px;
+  }
+
+  .home-page .home-return-date-number {
+    font-size: 17px;
+  }
+
+  .home-page .home-return-date-text {
+    font-size: 13px;
+  }
+
+  .home-page .home-return-content .home-missing-text {
+    margin-top: 14px;
+  }
 }
