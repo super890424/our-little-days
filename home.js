@@ -26,6 +26,45 @@ const HOME_MISSING_START_DATE = "2026-09-17";
 // ==========================================================
 // 🐕 回國倒數
 // ==========================================================
+// ==========================================================
+// 🕐 台灣時間
+// 所有首頁日期計算都固定以 Asia/Taipei 為準
+// ==========================================================
+
+function getTaiwanToday() {
+  const now = new Date();
+
+  const parts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Taipei",
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+  }).formatToParts(now);
+
+  let year;
+  let month;
+  let day;
+
+  parts.forEach(function (part) {
+    if (part.type === "year") {
+      year = Number(part.value);
+    }
+
+    if (part.type === "month") {
+      month = Number(part.value);
+    }
+
+    if (part.type === "day") {
+      day = Number(part.value);
+    }
+  });
+
+  return new Date(year, month - 1, day);
+}
+
+// ==========================================================
+// 🐕 回國倒數
+// ==========================================================
 
 function renderHomeReturnCountdown() {
   const daysElement = document.getElementById("home-return-days");
@@ -36,19 +75,13 @@ function renderHomeReturnCountdown() {
     return;
   }
 
-  const today = new Date();
-
-  const todayDate = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate(),
-  );
+  const todayDate = getTaiwanToday();
 
   const returnDate = new Date(2026, 10, 17);
 
   const diff = returnDate.getTime() - todayDate.getTime();
 
-  const days = Math.ceil(diff / (1000 * 60 * 60 * 24));
+  const days = Math.round(diff / (1000 * 60 * 60 * 24));
 
   // ========================================================
   // 今天回國
@@ -85,36 +118,70 @@ function renderHomeReturnCountdown() {
 
 // ==========================================================
 // 💭 計算已經想念幾天
-// 2026/09/17 = 第一天
+// 2026/09/17 = 出發日
+// 9/17 當天 = 0 天
+// 9/18 = 1 天
 // ==========================================================
 
 function renderHomeMissingDays() {
   const numberElement = document.getElementById("home-missing-days");
-
   const textElement = document.getElementById("home-missing-days-text");
 
   if (!numberElement && !textElement) {
     return;
   }
 
-  const today = new Date();
+  // --------------------------------------------------------
+  // 取得「今天」的台灣日期
+  // --------------------------------------------------------
 
-  const todayDate = new Date(
-    today.getFullYear(),
-    today.getMonth(),
-    today.getDate(),
-  );
+  const now = new Date();
 
-  const startDate = new Date(2026, 8, 17);
+  const taiwanParts = new Intl.DateTimeFormat("en-US", {
+    timeZone: "Asia/Taipei",
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+  }).formatToParts(now);
 
-  const diff = todayDate.getTime() - startDate.getTime();
+  let year;
+  let month;
+  let day;
 
-  let days = Math.floor(diff / (1000 * 60 * 60 * 24)) + 1;
+  taiwanParts.forEach(function (part) {
+    if (part.type === "year") {
+      year = Number(part.value);
+    }
 
-  // 如果還沒到出發日
-  if (days < 1) {
-    days = 0;
-  }
+    if (part.type === "month") {
+      month = Number(part.value);
+    }
+
+    if (part.type === "day") {
+      day = Number(part.value);
+    }
+  });
+
+  // --------------------------------------------------------
+  // 用 UTC 計算日期差
+  // 避免馬爾他／台灣時區造成日期跑掉
+  // --------------------------------------------------------
+
+  const todayUTC = Date.UTC(year, month - 1, day);
+
+  // 2026/09/17 出發
+  const startUTC = Date.UTC(2026, 8, 17);
+
+  const diffDays = Math.floor((todayUTC - startUTC) / (1000 * 60 * 60 * 24));
+
+  // 9/17 = 0 天
+  // 9/18 = 1 天
+  // 9/19 = 2 天
+  const days = Math.max(0, diffDays);
+
+  // --------------------------------------------------------
+  // 顯示
+  // --------------------------------------------------------
 
   if (numberElement) {
     numberElement.textContent = days;
